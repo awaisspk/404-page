@@ -1,13 +1,14 @@
 import {globalCss} from '@stitches';
-import {normalize} from 'stitches-normalize-css';
 
-export const globalStyles = globalCss(...normalize, {
+export const globalStyles = globalCss({
+  '@import': ['global.css'],
+
   '@font-face ': {
-    fontFamily: '', // set font
+    fontFamily: 'Inter',
     fontStyle: 'normal',
     fontWeight: '100 900',
-    fontDisplay: 'optional',
-    src: 'url("/fonts/") format("woff2")',
+    fontDisplay: 'fallback',
+    src: 'url("/fonts/inter-var-latin.woff2") format("woff2")',
   },
 
   html: {
@@ -30,13 +31,9 @@ export const globalStyles = globalCss(...normalize, {
     maxWidth: '100%',
   },
 
-  body: {
-    lineHeight: 1.5,
-  },
-
   'h1, h2, h3, h4,li,p': {
     overflowWrap: 'break-word',
-    hyphens: 'auto',
     WebkitHyphens: 'auto',
+    hyphens: 'auto',
   },
 });
